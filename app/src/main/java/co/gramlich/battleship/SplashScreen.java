@@ -13,39 +13,40 @@ import android.widget.ImageView.ScaleType;
 
 public class SplashScreen extends Activity {
 	
-	private TwoSecondTimer timer;
+	private AutoStartHandler autoStart;
 
-	private class TwoSecondTimer extends Handler {
-		public TwoSecondTimer() {
-			sendMessageDelayed(obtainMessage(0), 7000);
-		}
-		
-		@Override
-		public void handleMessage(Message m) {
-			startGame();
-		}
-		
-	}
 	@Override
-	public void onCreate(Bundle b) {
-		super.onCreate(b);
-		timer = new TwoSecondTimer();
-		ImageView iv = new ImageView(this);
-		iv.setImageResource(R.drawable.splash);
-		iv.setScaleType(ScaleType.FIT_XY);
-		setContentView(iv);
+	public void onCreate(Bundle bundle) {
+		super.onCreate(bundle);
+		autoStart = new AutoStartHandler();
+		ImageView imageView = new ImageView(this);
+		imageView.setImageResource(R.drawable.splash);
+		imageView.setScaleType(ScaleType.FIT_XY);
+		setContentView(imageView);
 	}
-	
-	private void startGame() {
-		timer.removeMessages(0);
-		Intent i = new Intent(this, Main.class);
-		startActivity(i);
-		finish();		
-	}
-	
+
 	@Override
-	public boolean onTouchEvent(MotionEvent m) {
+	public boolean onTouchEvent(MotionEvent motionEvent) {
 		startGame();
 		return true;
+	}
+
+	private void startGame() {
+		autoStart.removeMessages(0);
+		Intent intent = new Intent(this, BattleshipActivity.class);
+		startActivity(intent);
+		finish();
+	}
+
+	private class AutoStartHandler extends Handler {
+		public AutoStartHandler() {
+			sendMessageDelayed(obtainMessage(0), 7000);
+		}
+
+		@Override
+		public void handleMessage(Message message) {
+			startGame();
+		}
+
 	}
 }

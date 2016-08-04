@@ -11,7 +11,7 @@ import android.preference.PreferenceManager;
 import android.view.Gravity;
 import android.widget.Toast;
 
-public class Options extends PreferenceActivity{
+public class SettingsActivity extends PreferenceActivity{
 	//option names and default values
 	private static final String OPT_SOUND = "soundfx";
 	private static final String OPT_RAPID_GUNS = "rapid_guns";
@@ -33,7 +33,7 @@ public class Options extends PreferenceActivity{
 			@Override
 			public boolean onPreferenceChange(Preference preference,
 					Object newValue) {
-				Toast toast = Toast.makeText(Options.this, 
+				Toast toast = Toast.makeText(SettingsActivity.this,
 						getResources().getString(R.string.restart),
 						Toast.LENGTH_LONG);
 				toast.setGravity(Gravity.CENTER, 0, 0);

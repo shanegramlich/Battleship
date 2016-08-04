@@ -22,7 +22,7 @@ public class Submarine extends Enemy {
 	
 //	@Override
 //	protected float getSpeedRatio(Context c) {
-//		return Options.getSubSpeed(c);
+//		return SettingsActivity.getSubSpeed(c);
 //	}
 	
 	@Override

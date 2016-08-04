@@ -7,8 +7,8 @@ import android.graphics.Paint.Style;
 import android.graphics.PointF;
 import android.graphics.RectF;
 
+import co.gramlich.battleship.BattleshipActivity;
 import co.gramlich.battleship.skins.LookAndFeel;
-import co.gramlich.battleship.Main;
 import co.gramlich.battleship.TickListener;
 
 public abstract class Sprite implements TickListener {
@@ -43,7 +43,7 @@ public abstract class Sprite implements TickListener {
 	}
 
 	public void setImage(int id, Canvas c) {
-		image = Main.loadBitmap(id);
+		image = BattleshipActivity.loadBitmap(id);
 		width = image.getScaledWidth(c);
 		height = image.getScaledHeight(c);
 		bounds.left = 0;

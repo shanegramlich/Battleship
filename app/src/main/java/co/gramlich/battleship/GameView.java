@@ -54,18 +54,18 @@ public class GameView extends View {
 	private Gunsmoke leftGunsmoke, rightGunsmoke;
 	private boolean showLeftGunsmoke, showRightGunsmoke;
 	private SoundFX fx;
-	private Main main;
+	private BattleshipActivity battleshipActivity;
 	float timerTextWidth;
 	boolean gameOver;
 	public static LookAndFeel skin;
 	private RetroLNF retro;
 	private SteroidsLNF steroids;
-	private Options o;
+	private SettingsActivity o;
 
 	
 	public GameView(Context context) {
 		super(context);
-		main = (Main)context;
+		battleshipActivity = (BattleshipActivity)context;
 		fx = new SoundFX(context);
 		subs = new LinkedList<Enemy>();
 		planes = new LinkedList<Enemy>();
@@ -75,12 +75,12 @@ public class GameView extends View {
 		paint.setTypeface(Typeface.DEFAULT_BOLD);
 		initialized = false;
 		gameOver = false;
-		water = Main.loadBitmap(R.drawable.water);
+		water = BattleshipActivity.loadBitmap(R.drawable.water);
 		score = 0;
-		timeLeft = Options.getGameLength(getContext());
+		timeLeft = SettingsActivity.getGameLength(getContext());
 		paused = backgrounded = false;
 		showLeftGunsmoke = showRightGunsmoke = false;
-		o = new Options();
+		o = new SettingsActivity();
 		switch(o.getSkin(context)){
 		case 1:
 			skin = new RetroLNF();
@@ -119,10 +119,10 @@ public class GameView extends View {
 			rightGunsmoke.setBottom(battleship.getRightGunPosition().y);
 			rightGunsmoke.setLeft(battleship.getRightGunPosition().x);
 
-			for (int i=0; i<Options.getNumPlanes(getContext()); ++i) {
+			for (int i = 0; i< SettingsActivity.getNumPlanes(getContext()); ++i) {
 				planes.add(new Airplane(canvas));
 			}
-			for (int i=0; i<Options.getNumSubs(getContext()); ++i) {
+			for (int i = 0; i< SettingsActivity.getNumSubs(getContext()); ++i) {
 				subs.add(new Submarine(canvas));
 			}
 			timer = new Timer();
@@ -163,7 +163,7 @@ public class GameView extends View {
 		String scoreText = getResources().getString(R.string.score)+": " + score;
 		canvas.drawText(scoreText, 5, canvas.getHeight()/2 - paint.ascent(), paint);
 
-		String timerText = String.format(getResources().getString(R.string.time)+": %d:%02d", timeLeft/60, timeLeft%60);
+		String timerText = String.format("Time Left"+": %d:%02d", timeLeft/60, timeLeft%60);
 		canvas.drawText(timerText, canvas.getWidth()-timerTextWidth-5, canvas.getHeight()/2 - paint.ascent(), paint);
 
 		if (paused) {
@@ -190,7 +190,7 @@ public class GameView extends View {
 	public void restart() {
 		gameOver = false;
 		score = 0;
-		timeLeft = Options.getGameLength(getContext());
+		timeLeft = SettingsActivity.getGameLength(getContext());
 		paused = false;
 		backgrounded = false;
 		showLeftGunsmoke = showRightGunsmoke = false;
@@ -214,11 +214,6 @@ public class GameView extends View {
 		backgrounded = bg;
 	}
 
-	//This is the one method in the whole program that makes
-	//use of the Android 2.1 API.  Everything else is compatible
-	//with Android 1.6. By leaving 1.6 behind we are alienating
-	//less than 2% of our customers. And the old version will still
-	//be available to those that need it.
 	@Override
 	public boolean onTouchEvent(MotionEvent event) {
 		if (!paused) {
@@ -272,15 +267,8 @@ public class GameView extends View {
 		}
 	}
 
-	/**
-	 * Creates a new bullet
-	 * @param x x-position of the new bullet
-	 * @param y y-position of the new bullet
-	 * @param d direction of new bullet (left to right or right to left)
-	 * @return true if the new bullet was successfully created; false if not
-	 */
 	private boolean newBullet(PointF p, Direction d) {
-		if (!(Options.getRapidGuns(getContext()))) {
+		if (!(SettingsActivity.getRapidGuns(getContext()))) {
 			//			Bullet existing = bullets.peekLast();
 			//			if (existing != null 
 			//					&& existing.direction() == d
@@ -309,7 +297,7 @@ public class GameView extends View {
 	private void dropDepthCharge() {
 		//if rapid-fire is off, AND if there's already
 		//a depth-charge sinking, then don't do anything
-		if (!(Options.getRapidDC(getContext()))) {
+		if (!(SettingsActivity.getRapidDC(getContext()))) {
 			DepthCharge existing = bombs.peekLast();
 			if (existing != null) {
 				if (existing.isSinking()) {
@@ -375,7 +363,7 @@ public class GameView extends View {
 //			Intent newIntent = new Intent(GameView.this.getContext(), ScoreBoard.class);
 //			newIntent.putExtras(bundle);
 //			timer.removeMessages(0);
-//			main.startActivityForResult(newIntent, Main.HIGH_SCORE_DIALOG);
+//			battleshipActivity.startActivityForResult(newIntent, BattleshipActivity.HIGH_SCORE_DIALOG);
 //			return;
 //		}
 //		if (!(paused || backgrounded)) {
@@ -443,7 +431,7 @@ public class GameView extends View {
 				Intent newIntent = new Intent(GameView.this.getContext(), ScoreBoard.class);
 				newIntent.putExtras(bundle);
 				timer.removeMessages(0);
-				main.startActivityForResult(newIntent, Main.HIGH_SCORE_DIALOG);
+				battleshipActivity.startActivityForResult(newIntent, BattleshipActivity.HIGH_SCORE_DIALOG);
 				return;
 			}
 			if (!(paused || backgrounded)) {

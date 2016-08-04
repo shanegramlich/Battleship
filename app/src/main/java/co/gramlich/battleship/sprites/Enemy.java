@@ -6,7 +6,7 @@ import java.util.List;
 import android.graphics.Canvas;
 import android.graphics.RectF;
 
-import co.gramlich.battleship.Main;
+import co.gramlich.battleship.BattleshipActivity;
 
 public abstract class Enemy extends Sprite {
 
@@ -145,7 +145,7 @@ public abstract class Enemy extends Sprite {
 		if (exploding) {
 			float mx = (bounds.right - bounds.left) / 2 + bounds.left;
 			float my = (bounds.bottom - bounds.top) / 2 + bounds.top;
-			image = Main.loadBitmap(explodingImage());
+			image = BattleshipActivity.loadBitmap(explodingImage());
 			int xw = image.getScaledWidth(c)/2;
 			int xh = image.getScaledHeight(c)/2;
 			bounds.set(mx - xw, my - xh, mx + xw, my + xh);

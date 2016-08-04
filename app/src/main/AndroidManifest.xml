@@ -21,7 +21,7 @@
         </activity>
         <activity
             android:label="@string/app_name"
-            android:name="Main"
+            android:name=".BattleshipActivity"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
             android:alwaysRetainTaskState="true"
             android:screenOrientation="landscape">
@@ -30,7 +30,7 @@
             android:label="Game Over"
             android:theme="@android:style/Theme.Dialog">
         </activity>
-        <activity android:name="Options"
+        <activity android:name=".SettingsActivity"
             android:label="Preferences">
         </activity>
     </application>

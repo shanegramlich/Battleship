@@ -24,32 +24,32 @@ public class SoundFX {
 	}
 
 	public void leftGun() {
-		if (Options.getSoundFX(context)) {
+		if (SettingsActivity.getSoundFX(context)) {
 			leftGun.start();
 		}
 	}
 
 	public void rightGun() {
-		if (Options.getSoundFX(context)) {
+		if (SettingsActivity.getSoundFX(context)) {
 			rightGun.start();
 		}
 	}
 
 
 	public void planeExplode() {
-		if (Options.getSoundFX(context)) {
+		if (SettingsActivity.getSoundFX(context)) {
 			planeExplode.start();
 		}
 	}
 
 	public void subExplode() {
-		if (Options.getSoundFX(context)) {
+		if (SettingsActivity.getSoundFX(context)) {
 			subExplode.start();
 		}
 	}
 
 	public void dcBeep() {
-		if (Options.getSoundFX(context)) {
+		if (SettingsActivity.getSoundFX(context)) {
 			dcBeep.start();
 		}
 	}

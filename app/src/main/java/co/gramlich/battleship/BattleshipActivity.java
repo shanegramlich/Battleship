@@ -15,7 +15,7 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
-public class Main extends Activity {
+public class BattleshipActivity extends Activity {
 	private static Resources resources;
 	private GameView gameView;
 	public static final int HIGH_SCORE_DIALOG = 1;
@@ -110,7 +110,7 @@ public class Main extends Activity {
 						.show();
 				return true;
 			case R.id.options:
-				startActivity(new Intent(this, Options.class));
+				startActivity(new Intent(this, SettingsActivity.class));
 				return true;
 			case R.id.quit:
 				showQuitDialog();
