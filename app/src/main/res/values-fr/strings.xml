@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Malo lave le lalolagi, BattleshipWarActivity!</string>
+    <string name="app_name">O le pokalama nei o !18n Internationalization</string>
+    <!--  Examples -->
+	<string name="congrats">Congratulations! You cleared %1$d ducks in %2$d seconds!</string>
+	<!--  Start of Mine -->
+	<string name="time">Taimi</string>
+	<string name="score">Sakoa</string>
+	<string name="pause_option">Pausi</string>
+	<string name="quit_option">Taofi</string>
+	<string name="preference_option">Filifiliga</string>
+	<string name="about_option">e uiga</string>
+	<string name="continue_playing">faa solo solo</string>
+	<string name="about_message">O nei tala ua faaliliu i le gagana o FaaSamoa</string>
+	<string name="are_you_sure">Te fia Kaofi?</string>
+	<string name="yes">Ioe</string>
+	<string name="no">Leai</string>
+	<string name="restart">Toe amata le pokalama</string>
+	<string name="name">Igoa faamolemole</string>
+	<string name="soundfx">Ki Ki le Musika</string>
+	<string name="soundfxsum">Taofi le musika</string>
+	<string name="gamelength">Kaaloga Taimi</string>
+	<string name="gamelengthsum">E fia minuki e ke fia kaaolo ai?</string>
+	<string name="missiles">Misilai</string>
+	<string name="missilessum">E fia Misilai e ke fia faga ai?</string>
+	<string name="dc">Mea e faapa</string>
+	<string name="dcsum">E fia mea e faapa e ke fia faga ai?</string>
+	<string name="plane">Vaalele</string>
+	<string name="planesum">E fia vaalele e ke fia fai ai?</string>
+	<string name="sub">Vaa lalo vai</string>
+	<string name="subsum">E fia vaa lalo vai e ke fia fai ai?</string>
+	
+<!-- getResources().getString(R.string.pause_option) -->
+</resources>

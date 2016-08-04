@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--  <item android:id="@+id/sound"
+          android:title="@string/toggle_sound_option" /> -->
+    <item android:id="@+id/pause"
+          android:title="@string/pause_option" />
+    <item android:id="@+id/quit"
+          android:title="@string/quit_option" />
+    <item android:id="@+id/options"
+          android:title="@string/preference_option" />
+    <item android:id="@+id/about"
+          android:title="@string/about_option" />
+          
+</menu>

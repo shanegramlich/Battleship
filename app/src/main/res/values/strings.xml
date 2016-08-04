@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, BattleshipWarActivity!</string>
+    <string name="app_name">Battleship</string>
+    <string name="time">TIME</string>
+	<string name="score">SCORE</string>
+	<string name="pause_option">Pause</string>
+	<string name="quit_option">Quit</string>
+	<string name="preference_option">Preferences</string>
+	<string name="about_option">About</string>
+	<string name="continue_playing">Tap to Continue</string>
+	<string name="about_message">This program was developed by the students of CS 203 (Fall 2012) at BYU Hawaii.</string>
+	<string name="are_you_sure">Are you sure you want to quit?</string>
+	<string name="yes">Yes</string>
+	<string name="no">No</string>
+	<string name="restart">This change will take effect next time you restart the app</string>
+	<string name="name">Type your name here</string>
+	<string name="soundfx">Toggle sound</string>
+	<string name="soundfxsum">Enable/Disable sound effects</string>
+	<string name="gamelength">Game Length</string>
+	<string name="gamelengthsum">How many minutes should one game last?</string>
+	<string name="missiles">Rapid-fire Missiles</string>
+	<string name="missilessum">Launch many missiles at a time</string>
+	<string name="dc">Rapid-fire Depth Charges</string>
+	<string name="dcsum">Launch many depth charges at a time</string>
+	<string name="plane">Airplanes on-screen</string>
+	<string name="planesum">How many airplanes should be on-screen at any time</string>
+	<string name="sub">Submarines on-screen</string>
+	<string name="subsum">How many submarines should be on-screen at any time</string>
+	<!-- getResources().getString(R.string.pause_option) -->
+</resources>
