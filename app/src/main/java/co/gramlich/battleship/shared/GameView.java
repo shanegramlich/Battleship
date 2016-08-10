@@ -1,4 +1,4 @@
-package co.gramlich.battleship;
+package co.gramlich.battleship.shared;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -18,13 +18,16 @@ import android.view.MotionEvent;
 import android.view.View;
 
 
+import co.gramlich.battleship.BattleshipActivity;
+import co.gramlich.battleship.R;
+import co.gramlich.battleship.SettingsActivity;
 import co.gramlich.battleship.scoreboard.ScoreBoard;
 import co.gramlich.battleship.skins.LookAndFeel;
 import co.gramlich.battleship.skins.RetroLNF;
 import co.gramlich.battleship.skins.SteroidsLNF;
+import co.gramlich.battleship.sprites.Direction;
 import co.gramlich.battleship.sprites.FakeQueue;
 import co.gramlich.battleship.sprites.Sprite;
-import co.gramlich.battleship.sprites.Sprite.Direction;
 import co.gramlich.battleship.sprites.Airplane;
 import co.gramlich.battleship.sprites.Battleship;
 import co.gramlich.battleship.sprites.Bullet;
@@ -60,7 +63,7 @@ public class GameView extends View {
 	public static LookAndFeel skin;
 	private RetroLNF retro;
 	private SteroidsLNF steroids;
-	private SettingsActivity o;
+	private SettingsActivity settingsActivity;
 
 	
 	public GameView(Context context) {
@@ -80,8 +83,8 @@ public class GameView extends View {
 		timeLeft = SettingsActivity.getGameLength(getContext());
 		paused = backgrounded = false;
 		showLeftGunsmoke = showRightGunsmoke = false;
-		o = new SettingsActivity();
-		switch(o.getSkin(context)){
+		settingsActivity = new SettingsActivity();
+		switch(settingsActivity.getSkin(context)){
 		case 1:
 			skin = new RetroLNF();
 			break;
@@ -163,7 +166,7 @@ public class GameView extends View {
 		String scoreText = getResources().getString(R.string.score)+": " + score;
 		canvas.drawText(scoreText, 5, canvas.getHeight()/2 - paint.ascent(), paint);
 
-		String timerText = String.format("Time Left"+": %d:%02d", timeLeft/60, timeLeft%60);
+		String timerText = String.format("TIME:"+" %d:%02d", timeLeft/60, timeLeft%60);
 		canvas.drawText(timerText, canvas.getWidth()-timerTextWidth-5, canvas.getHeight()/2 - paint.ascent(), paint);
 
 		if (paused) {
@@ -247,7 +250,7 @@ public class GameView extends View {
 		//		float magic = 168f/183f;
 		//		float y = Sprite.canvasHeight/2 - battleship.getHeight();
 		//		float x = (Sprite.canvasWidth - battleship.getWidth())/2 + battleship.getWidth()*magic;
-		if (newBullet(battleship.getRightGunPosition(), Direction.LEFT_TO_RIGHT)) {
+		if (newBullet(battleship.getRightGunPosition(), Direction.RIGHT)) {
 			//			gunsmoke.setBottom(y);
 			//			gunsmoke.setLeft(x);
 			showRightGunsmoke = true;
@@ -259,7 +262,7 @@ public class GameView extends View {
 		//		float magic = 23f/183f;
 		//		float y = Sprite.canvasHeight/2 - battleship.getHeight();
 		//		float x = (Sprite.canvasWidth - battleship.getWidth())/2 + battleship.getWidth()*magic;
-		if (newBullet(battleship.getLeftGunPosition(), Direction.RIGHT_TO_LEFT)) {
+		if (newBullet(battleship.getLeftGunPosition(), Direction.LEFT)) {
 			//			gunsmoke.setBottom(y);
 			//			gunsmoke.setRight(x);
 			showLeftGunsmoke = true;
@@ -267,25 +270,25 @@ public class GameView extends View {
 		}
 	}
 
-	private boolean newBullet(PointF p, Direction d) {
+	private boolean newBullet(PointF pointF, Direction direction) {
 		if (!(SettingsActivity.getRapidGuns(getContext()))) {
 			//			Bullet existing = bullets.peekLast();
 			//			if (existing != null 
-			//					&& existing.direction() == d
+			//					&& existing.getDirection() == d
 			//					&& existing.isVisible()) {
 			//				return false;
 			//			}
 			List<Bullet> existing = bullets.peekLast2();
 			if (existing != null) {
-				Bullet b1 = existing.get(0);
-				Bullet b2 = existing.get(1);
-				if ((b1.direction() == d && b1.isVisible())
-						|| (b2.direction() == d && b2.isVisible())) {
+				Bullet bullet1 = existing.get(0);
+				Bullet bullet2 = existing.get(1);
+				if ((bullet1.getDirection() == direction && bullet1.isVisible())
+						|| (bullet2.getDirection() == direction && bullet2.isVisible())) {
 					return false;
 				}
 			}
 		}
-		Bullet b = new Bullet(new PointF(p.x,p.y), d);
+		Bullet b = new Bullet(new PointF(pointF.x,pointF.y), direction);
 		timer.subscribe(b);
 		Bullet doomed = bullets.add(b);
 		if (doomed != null) {
@@ -449,8 +452,8 @@ public class GameView extends View {
 				invalidate();
 			}
 
-			for (TickListener tl : listeners) {
-				tl.tick();
+			for (TickListener tickListener : listeners) {
+				tickListener.tick();
 			}
 			removeMessages(0);
 			sendMessageDelayed(obtainMessage(0), 50);

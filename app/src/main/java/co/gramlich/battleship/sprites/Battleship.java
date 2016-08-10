@@ -5,7 +5,7 @@ package co.gramlich.battleship.sprites;
 import android.graphics.Canvas;
 import android.graphics.PointF;
 
-import co.gramlich.battleship.GameView;
+import co.gramlich.battleship.shared.GameView;
 
 public class Battleship extends Sprite {
 	
@@ -29,7 +29,7 @@ public class Battleship extends Sprite {
 		rightGunPosition = new PointF(x,y);
 	}
 	
-//	//Draper's Psuedo Code
+//	//Draper's Pseudo Code
 //	public Battleship(LookAndFeel skin, Canvas c ){
 //		setImage(skin.getBattleship(), c);
 //	}

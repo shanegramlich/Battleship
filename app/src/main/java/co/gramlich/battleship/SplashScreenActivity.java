@@ -11,7 +11,7 @@ import android.view.MotionEvent;
 import android.widget.ImageView;
 import android.widget.ImageView.ScaleType;
 
-public class SplashScreen extends Activity {
+public class SplashScreenActivity extends Activity {
 	
 	private AutoStartHandler autoStart;
 

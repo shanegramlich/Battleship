@@ -4,7 +4,7 @@ package co.gramlich.battleship.sprites;
 import android.graphics.Canvas;
 import android.util.Log;
 
-import co.gramlich.battleship.GameView;
+import co.gramlich.battleship.shared.GameView;
 import co.gramlich.battleship.R;
 
 
@@ -12,7 +12,7 @@ public class Airplane extends Enemy {
 
 	public Airplane(Canvas c) {
 		super(c);
-		Log.d("CS203", ""+bounds);
+		Log.d("CS203", "Airplane Bounds:"+bounds);
 	}
 	
 	@Override
@@ -32,9 +32,9 @@ public class Airplane extends Enemy {
 	public void reset() {
 		super.reset();
 		switch (getSize()) {
-		case SMALL:
+			case SMALL:
 			pointValue = 75;
-			if (getDirection() == Direction.LEFT_TO_RIGHT) {
+			if (getDirection() == Direction.RIGHT) {
 				setImage(GameView.skin.getSmallAirplaneRight(), canvas);
 			} else {
 				setImage(GameView.skin.getSmallAirplaneLeft(), canvas);
@@ -42,7 +42,7 @@ public class Airplane extends Enemy {
 			break;
 		case MEDIUM:
 			pointValue = 20;
-			if (getDirection() == Direction.LEFT_TO_RIGHT) {
+			if (getDirection() == Direction.RIGHT) {
 				setImage(R.drawable.medium_airplane_flip, canvas);
 			} else {
 				setImage(R.drawable.medium_airplane, canvas);
@@ -50,7 +50,7 @@ public class Airplane extends Enemy {
 			break;
 		case LARGE:
 			pointValue = 15;
-			if (getDirection() == Direction.LEFT_TO_RIGHT) {
+			if (getDirection() == Direction.RIGHT) {
 				setImage(R.drawable.big_airplane_flip, canvas);
 			} else {
 				setImage(R.drawable.big_airplane, canvas);

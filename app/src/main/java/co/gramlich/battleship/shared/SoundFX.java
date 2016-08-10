@@ -1,9 +1,12 @@
-package co.gramlich.battleship;
+package co.gramlich.battleship.shared;
 
 
 
 import android.content.Context;
 import android.media.MediaPlayer;
+
+import co.gramlich.battleship.R;
+import co.gramlich.battleship.SettingsActivity;
 
 public class SoundFX {
 

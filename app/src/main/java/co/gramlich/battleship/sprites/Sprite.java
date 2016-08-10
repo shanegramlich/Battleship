@@ -9,7 +9,7 @@ import android.graphics.RectF;
 
 import co.gramlich.battleship.BattleshipActivity;
 import co.gramlich.battleship.skins.LookAndFeel;
-import co.gramlich.battleship.TickListener;
+import co.gramlich.battleship.shared.TickListener;
 
 public abstract class Sprite implements TickListener {
 	protected Bitmap image;
@@ -20,11 +20,6 @@ public abstract class Sprite implements TickListener {
 	public static int canvasWidth;	//dirty hack
 	public static int canvasHeight;	//dirty hack
 	static LookAndFeel skin;
-
-	public enum Direction {
-		LEFT_TO_RIGHT,
-		RIGHT_TO_LEFT;
-	}
 
 	public Sprite() {
 		paint = new Paint();

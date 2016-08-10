@@ -8,7 +8,8 @@ import co.gramlich.battleship.R;
 
 public class Gunsmoke extends Sprite {
 
-	public Gunsmoke(Canvas c) {
-		setImage(R.drawable.star, c);
+	public Gunsmoke(Canvas canvas) {
+
+		setImage(R.drawable.star, canvas);
 	}
 }

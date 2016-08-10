@@ -5,7 +5,6 @@ package co.gramlich.battleship.sprites;
 import android.graphics.Canvas;
 
 import co.gramlich.battleship.R;
-import co.gramlich.battleship.sprites.Enemy;
 
 public class Submarine extends Enemy {
 	
@@ -31,7 +30,7 @@ public class Submarine extends Enemy {
 		switch (getSize()) {
 		case SMALL:
 			pointValue = 150;
-			if (getDirection() == Direction.LEFT_TO_RIGHT) {
+			if (getDirection() == Direction.RIGHT) {
 				setImage(R.drawable.little_submarine, canvas);
 			} else {
 				setImage(R.drawable.little_submarine_flip, canvas);
@@ -39,7 +38,7 @@ public class Submarine extends Enemy {
 			break;
 		case MEDIUM:
 			pointValue = 40;
-			if (getDirection() == Direction.LEFT_TO_RIGHT) {
+			if (getDirection() == Direction.RIGHT) {
 				setImage(R.drawable.medium_submarine, canvas);
 			} else {
 				setImage(R.drawable.medium_airplane_flip, canvas);
@@ -47,7 +46,7 @@ public class Submarine extends Enemy {
 			break;
 		case LARGE:
 			pointValue = 25;
-			if (getDirection() == Direction.LEFT_TO_RIGHT) {
+			if (getDirection() == Direction.RIGHT) {
 				setImage(R.drawable.big_submarine, canvas);
 			} else {
 				setImage(R.drawable.big_submarine_flip, canvas);

@@ -146,9 +146,9 @@ public class ScoreBoard extends Activity {
 		//open XML file
 		//loop through MAX entries.
 		//render and save.
-		FileOutputStream fos = null;
+		FileOutputStream fileOutputStream = null;
 		try {
-			fos = getOutputStream();
+			fileOutputStream = getOutputStream();
 			XmlSerializer serial = Xml.newSerializer();
 			StringWriter sw = new StringWriter();
 			serial.setOutput(sw);
@@ -163,8 +163,8 @@ public class ScoreBoard extends Activity {
 			serial.endTag("", "scores");
 			serial.endDocument();
 			String document = sw.toString();
-			fos.write(document.getBytes());
-			fos.close();
+			fileOutputStream.write(document.getBytes());
+			fileOutputStream.close();
 			scoreList.addView(buttons);
 		} catch (Exception e) {
 			Log.d("CS203", e.getMessage());

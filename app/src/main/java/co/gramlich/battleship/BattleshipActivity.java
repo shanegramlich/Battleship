@@ -15,6 +15,8 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 
+import co.gramlich.battleship.shared.GameView;
+
 public class BattleshipActivity extends Activity {
 	private static Resources resources;
 	private GameView gameView;

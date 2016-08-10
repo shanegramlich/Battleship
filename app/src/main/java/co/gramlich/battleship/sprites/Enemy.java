@@ -10,43 +10,41 @@ import co.gramlich.battleship.BattleshipActivity;
 
 public abstract class Enemy extends Sprite {
 
-	private int vx;
-	private Direction dir;
-	private Size size;
-	protected int pointValue;
-	protected Canvas canvas;
-	//protected Bitmap explosion;
-	private boolean exploding;
 	//protected int explodingImage;
 	private static List<RectF> yRegistry = new LinkedList<RectF>();
 	public RectF yRect;
+	protected int pointValue;
+	protected Canvas canvas;
+	private int vx;
+	private Direction direction;
+	private Size size;
+	//protected Bitmap explosion;
+	private boolean exploding;
 	private float maxVelocity;
 
 
-	public enum Size {
-		SMALL,
-		MEDIUM,
-		LARGE;
+	public Enemy(Canvas canvas) {
+		super();
+		this.canvas = canvas;
+		maxVelocity = getMaxVelocity();
+		reset();
 	}
 
-	public Enemy(Canvas c) {
-		super();
-		canvas = c;
-		maxVelocity = canvasWidth * 0.00625f;//TODO replace with preferences value
-		reset();		
+	private float getMaxVelocity() {
+		return canvasWidth * 0.00625f;//TODO replace with preferences value
 	}
-	
+
 	public float maxVelocity() {
 		return maxVelocity;
 	}
-
+	
 	public void reset() {
 		exploding = false;
 		if (Math.random() < 0.5) {
-			dir = Direction.LEFT_TO_RIGHT;
+			direction = Direction.RIGHT;
 			vx = 1;
 		} else {
-			dir = Direction.RIGHT_TO_LEFT;
+			direction = Direction.LEFT;
 			vx = -1;
 		}
 		randomVelocity();
@@ -64,7 +62,7 @@ public abstract class Enemy extends Sprite {
 	}
 
 	public Direction getDirection() {
-		return dir;
+		return direction;
 	}
 
 	public Size getSize() {
@@ -77,19 +75,13 @@ public abstract class Enemy extends Sprite {
 		if (Math.random() < 0.1) {
 			randomVelocity();
 		}
-		boolean offscreen = false;
-		if (dir == Direction.LEFT_TO_RIGHT) {
-			if (bounds.left > canvasWidth) {
-				offscreen = true;
-			}
-		} else {
-			if (bounds.right < 0) {
-				offscreen = true;
-			}
-		}
-		if (offscreen) {
+		if (isOffscreen()) {
 			reset();
 		}
+	}
+
+	private boolean isOffscreen() {
+		return bounds.left > canvasWidth || bounds.right < 0;
 	}
 
 	private void randomVelocity() {
@@ -97,7 +89,7 @@ public abstract class Enemy extends Sprite {
 	}
 
 	protected void setStartingPosition() {
-		if (dir == Direction.LEFT_TO_RIGHT) {
+		if (direction == Direction.RIGHT) {
 			setRight(0);
 		} else {
 			setLeft(canvasWidth);
@@ -131,31 +123,32 @@ public abstract class Enemy extends Sprite {
 			}
 	}
 
-
 	public int getPointValue() {
 		return pointValue;
 	}
 
 	public void explode() {
-		exploding = true;		
+		exploding = true;
 	}
 
 	@Override
-	public void draw(Canvas c) {
+	public void draw(Canvas canvas) {
 		if (exploding) {
 			float mx = (bounds.right - bounds.left) / 2 + bounds.left;
 			float my = (bounds.bottom - bounds.top) / 2 + bounds.top;
 			image = BattleshipActivity.loadBitmap(explodingImage());
-			int xw = image.getScaledWidth(c)/2;
-			int xh = image.getScaledHeight(c)/2;
+			int xw = image.getScaledWidth(canvas)/2;
+			int xh = image.getScaledHeight(canvas)/2;
 			bounds.set(mx - xw, my - xh, mx + xw, my + xh);
 			velocity.set(0, 0);
 		}
-		super.draw(c);
+		super.draw(canvas);
 		if (exploding) {
 			reset();
 		}
 	}
+
+	protected abstract int explodingImage();
 
 	//	protected boolean onCollisionCourse(RectF other) {
 	//		if (other == null) return false;
@@ -164,11 +157,7 @@ public abstract class Enemy extends Sprite {
 	//		return RectF.intersects(tmp1, tmp2);
 	//	}
 
-	protected abstract int explodingImage();
-
 	public abstract float getMaxY();
 
 	public abstract float getMinY();
-
-
 }

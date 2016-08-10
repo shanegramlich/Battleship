@@ -6,60 +6,60 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class FakeQueue<T> implements Iterable<T> {
-	private List<T> q;
 	private static int LIMIT = 20;
-	
-	public FakeQueue() {
-		q = new LinkedList<T>();
+	private List<T> queue;
+
+	public FakeQueue(){
+		queue = new LinkedList<T>();
 	}
 	
-	public int size() {
-		return q.size();
+	public int size(){
+		return queue.size();
 	}
 	
-	public T get(int i) {
-		return q.get(i);
+	public T get(int i){
+		return queue.get(i);
 	}
 	
-	public T add(T t) {
+	public T add(T t){
 		T doomed = null;
-		if (q.size() >= LIMIT) {
-			doomed = q.remove(0);
+		if (queue.size() >= LIMIT) {
+			doomed = queue.remove(0);
 		}
-		q.add(t);
+		queue.add(t);
 		return doomed;
 	}
 	
-	public void clear() {
-		q.clear();
+	public void clear(){
+		queue.clear();
 	}
 	
 	public boolean remove(T e) {
-		return q.remove(e);
+		return queue.remove(e);
 	}
 	
 	public T peekLast() {
-		if (q.isEmpty()) {
+		if (queue.isEmpty()) {
 			return null;
 		} else {
-			return q.get(q.size()-1);
+			return queue.get(queue.size()-1);
 		}
 	}
 	
 	public List<T> peekLast2() {
-		if (q.size() < 2) {
+		if (queue.size() < 2) {
 			return null;
 		} else {
 			List<T> result = new ArrayList<T>();
-			result.add(q.get(q.size()-1));
-			result.add(q.get(q.size()-2));
+			result.add(queue.get(queue.size()-1));
+			result.add(queue.get(queue.size()-2));
 			return result;
 		}
 	}
 
 	@Override
 	public Iterator<T> iterator() {
-		return q.iterator();
+		return queue.iterator();
 	}
 	
 }

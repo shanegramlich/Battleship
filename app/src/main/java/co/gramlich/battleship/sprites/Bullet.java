@@ -6,15 +6,15 @@ import android.graphics.PointF;
 
 public class Bullet extends Sprite {
 
-	private Direction dir;
+	private Direction direction;
 	
-	public Bullet(PointF pos, Direction d) {
+	public Bullet(PointF positionPointF, Direction direction) {
 		super();
-		PointF p1 = pos;
-		dir = d;
+		PointF p1 = positionPointF;
+		this.direction = direction;
 		paint.setColor(Color.rgb(128, 128, 128));
 		float magic = canvasHeight/20;
-		if (dir == Direction.RIGHT_TO_LEFT) {
+		if (this.direction == Direction.LEFT) {
 			PointF p2 = new PointF(p1.x - magic, p1.y - magic);
 			bounds.set(p2.x, p2.y, p1.x, p1.y);
 			velocity.x = -magic;
@@ -29,7 +29,7 @@ public class Bullet extends Sprite {
 	@Override
 	public void draw(Canvas c) {
 		//paint.setColor(color);
-		if (dir == Direction.RIGHT_TO_LEFT) {
+		if (direction == Direction.LEFT) {
 			c.drawLine(bounds.right, bounds.bottom,
 					bounds.left, bounds.top, paint);
 		} else {
@@ -42,8 +42,8 @@ public class Bullet extends Sprite {
 		return (bounds.top > 0);
 	}
 	
-	public Direction direction() {
-		return dir;
+	public Direction getDirection() {
+		return direction;
 	}
 
 }

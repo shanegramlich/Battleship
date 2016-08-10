@@ -5,7 +5,7 @@ package co.gramlich.battleship.sprites;
 import android.graphics.Canvas;
 
 import co.gramlich.battleship.R;
-import co.gramlich.battleship.SoundFX;
+import co.gramlich.battleship.shared.SoundFX;
 
 public class DepthCharge extends Sprite {
 
