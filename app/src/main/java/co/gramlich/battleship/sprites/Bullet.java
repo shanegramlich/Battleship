@@ -27,13 +27,13 @@ public class Bullet extends Sprite {
 	}
 	
 	@Override
-	public void draw(Canvas c) {
+	public void draw(Canvas canvas) {
 		//paint.setColor(color);
 		if (direction == Direction.LEFT) {
-			c.drawLine(bounds.right, bounds.bottom,
+			canvas.drawLine(bounds.right, bounds.bottom,
 					bounds.left, bounds.top, paint);
 		} else {
-			c.drawLine(bounds.left, bounds.bottom,
+			canvas.drawLine(bounds.left, bounds.bottom,
 					bounds.right, bounds.top, paint);
 		}
 	}

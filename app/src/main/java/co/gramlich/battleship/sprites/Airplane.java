@@ -2,75 +2,45 @@ package co.gramlich.battleship.sprites;
 
 
 import android.graphics.Canvas;
-import android.util.Log;
-
 import co.gramlich.battleship.shared.GameView;
 import co.gramlich.battleship.R;
 
 
 public class Airplane extends Enemy {
 
-	public Airplane(Canvas c) {
-		super(c);
-		Log.d("CS203", "Airplane Bounds:"+bounds);
+	public static final int ELEVATION_UPPER_BOUND = 0;
+	public static final int DISTANCE_BELOW_UPPER_BOUND = 300;
+
+	public Airplane(Canvas canvas) {
+		super(canvas);
 	}
 	
 	@Override
-	protected int explodingImage() {
-		return R.drawable.airplane_explosion;
-	}
-
-	public float getMaxY() {
-		return (canvasHeight/2) * 0.5f;
-	}
-
-	public float getMinY() {
-		return getHeight();
+	protected void getSmall() {
+		setPointValue(75);
+		setImageLeft(GameView.skin.getSmallAirplaneLeft());
+		setImageRight(GameView.skin.getSmallAirplaneRight());
+		setImageExplosion(R.drawable.airplane_explosion);
 	}
 
 	@Override
-	public void reset() {
-		super.reset();
-		switch (getSize()) {
-			case SMALL:
-			pointValue = 75;
-			if (getDirection() == Direction.RIGHT) {
-				setImage(GameView.skin.getSmallAirplaneRight(), canvas);
-			} else {
-				setImage(GameView.skin.getSmallAirplaneLeft(), canvas);
-			}
-			break;
-		case MEDIUM:
-			pointValue = 20;
-			if (getDirection() == Direction.RIGHT) {
-				setImage(R.drawable.medium_airplane_flip, canvas);
-			} else {
-				setImage(R.drawable.medium_airplane, canvas);
-			}
-			break;
-		case LARGE:
-			pointValue = 15;
-			if (getDirection() == Direction.RIGHT) {
-				setImage(R.drawable.big_airplane_flip, canvas);
-			} else {
-				setImage(R.drawable.big_airplane, canvas);
-			}
-			break;
-		}
-		setStartingPosition();
-
+	protected void getMedium() {
+		setPointValue(20);
+		setImageLeft(R.drawable.medium_airplane);
+		setImageRight(R.drawable.medium_airplane_flip);
+		setImageExplosion(R.drawable.airplane_explosion);
 	}
 
+	@Override
+	protected void getLarge() {
+		setPointValue(15);
+		setImageLeft(R.drawable.big_airplane);
+		setImageRight(R.drawable.big_airplane_flip);
+		setImageExplosion(R.drawable.airplane_explosion);
+	}
 
-	//@Override
-	//public int compareTo(Sprite other) {
-	//	//airplanes are sorted bottom to top
-	//	if (bounds.top > other.bounds.top) {
-	//		return 1;
-	//	}
-	//	if (bounds.top < other.bounds.top) {
-	//		return -1;
-	//	}
-	//	return 0;
-	//}
+	@Override
+	protected float getElevation() {
+		return (float) random.nextInt(DISTANCE_BELOW_UPPER_BOUND) + ELEVATION_UPPER_BOUND;
+	}
 }

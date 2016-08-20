@@ -1,4 +1,4 @@
-package co.gramlich.battleship.scoreboard;
+package co.gramlich.battleship;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -27,7 +27,10 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
-public class ScoreBoard extends Activity {
+import co.gramlich.battleship.scoreboard.HighScore;
+import co.gramlich.battleship.scoreboard.ScoreboardParser;
+
+public class ScoreBoardActivity extends Activity {
 
 
 	private LinearLayout content;

@@ -7,6 +7,8 @@ import android.graphics.Paint.Style;
 import android.graphics.PointF;
 import android.graphics.RectF;
 
+import java.util.Random;
+
 import co.gramlich.battleship.BattleshipActivity;
 import co.gramlich.battleship.skins.LookAndFeel;
 import co.gramlich.battleship.shared.TickListener;
@@ -20,6 +22,7 @@ public abstract class Sprite implements TickListener {
 	public static int canvasWidth;	//dirty hack
 	public static int canvasHeight;	//dirty hack
 	static LookAndFeel skin;
+	protected Random random = new Random();
 
 	public Sprite() {
 		paint = new Paint();
@@ -37,21 +40,18 @@ public abstract class Sprite implements TickListener {
 		
 	}
 
-	public void setImage(int id, Canvas c) {
+	public void setImage(int id, Canvas canvas) {
 		image = BattleshipActivity.loadBitmap(id);
-		width = image.getScaledWidth(c);
-		height = image.getScaledHeight(c);
+		width = image.getScaledWidth(canvas);
+		height = image.getScaledHeight(canvas);
 		bounds.left = 0;
 		bounds.right = width;
 		bounds.top = 0;
 		bounds.bottom = height;
 	}
 
-	public void draw(Canvas c) {
-		c.drawBitmap(image, bounds.left, bounds.top, paint);
-		//c.drawRect(bounds, paint);
-		//Log.d("CS203", "sprite width=" + image.getScaledWidth(c));
-		//Log.d("CS203", "sprite height=" + image.getScaledHeight(c));
+	public void draw(Canvas canvas) {
+		canvas.drawBitmap(image, bounds.left, bounds.top, paint);
 	}
 
 	public void move() {

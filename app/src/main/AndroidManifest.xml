@@ -26,7 +26,7 @@
             android:alwaysRetainTaskState="true"
             android:screenOrientation="landscape">
         </activity>
-        <activity android:name=".scoreboard.ScoreBoard"
+        <activity android:name=".ScoreBoardActivity"
             android:label="Game Over"
             android:theme="@android:style/Theme.Dialog">
         </activity>

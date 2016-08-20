@@ -15,6 +15,8 @@ import android.widget.EditText;
 import android.widget.TableRow;
 import android.widget.TextView;
 
+import co.gramlich.battleship.ScoreBoardActivity;
+
 public class HighScore implements Comparable<HighScore> {
 
 	private String name;
@@ -33,7 +35,7 @@ public class HighScore implements Comparable<HighScore> {
 		return score;
 	}
 
-	public TableRow createTableRow(final ScoreBoard c) {
+	public TableRow createTableRow(final ScoreBoardActivity c) {
 		final TextView left, right;
 		if (name == null) {
 			left = new EditText(c);

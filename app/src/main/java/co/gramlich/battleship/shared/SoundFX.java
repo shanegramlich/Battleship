@@ -17,13 +17,13 @@ public class SoundFX {
 	private MediaPlayer dcBeep;
 	private Context context;
 
-	public SoundFX(Context c) {
-		context = c;
-		leftGun = MediaPlayer.create(c, R.raw.left_gun);
-		rightGun = MediaPlayer.create(c, R.raw.right_gun);
-		planeExplode = MediaPlayer.create(c, R.raw.plane_explode);
-		subExplode = MediaPlayer.create(c, R.raw.sub_explode);
-		dcBeep = MediaPlayer.create(c, R.raw.depth_charge);
+	public SoundFX(Context context) {
+		this.context = context;
+		leftGun = MediaPlayer.create(context, R.raw.left_gun);
+		rightGun = MediaPlayer.create(context, R.raw.right_gun);
+		planeExplode = MediaPlayer.create(context, R.raw.plane_explode);
+		subExplode = MediaPlayer.create(context, R.raw.sub_explode);
+		dcBeep = MediaPlayer.create(context, R.raw.depth_charge);
 	}
 
 	public void leftGun() {
