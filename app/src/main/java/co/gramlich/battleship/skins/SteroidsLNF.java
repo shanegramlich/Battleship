@@ -37,8 +37,7 @@ public class SteroidsLNF implements LookAndFeel {
 
 	@Override
 	public int getBattleship() {
-		// TODO Auto-generated method stub
-		return R.drawable.battleshipgreen;
+		return R.drawable.battleship_green;
 	}
 
 	@Override
@@ -55,8 +54,7 @@ public class SteroidsLNF implements LookAndFeel {
 
 	@Override
 	public int getSmallAirplaneLeft() {
-		// TODO Auto-generated method stub
-		return 0;
+		return R.drawable.airplane_small_left_green;
 	}
 
 	@Override
@@ -73,14 +71,13 @@ public class SteroidsLNF implements LookAndFeel {
 
 	@Override
 	public int getSmallAirplaneRight() {
-		// TODO Auto-generated method stub
-		return R.drawable.little_airplane_flipc;
+		return R.drawable.airplane_small_right_purple;
 	}
 
 	@Override
 	public int getBigSubmarineLeft() {
 		// TODO Auto-generated method stub
-		return R.drawable.little_airplanec;
+		return 0;
 	}
 
 	@Override
@@ -92,7 +89,7 @@ public class SteroidsLNF implements LookAndFeel {
 	@Override
 	public int getSmallSubmarineLeft() {
 		// TODO Auto-generated method stub
-		return R.drawable.battleshipgreen;
+		return 0;
 	}
 
 	@Override

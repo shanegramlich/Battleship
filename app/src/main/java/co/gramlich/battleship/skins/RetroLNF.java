@@ -14,7 +14,6 @@ public class RetroLNF implements LookAndFeel {
 
 	@Override
 	public int getTextColor() {
-		// TODO Auto-generated method stub
 		return Color.BLACK;
 	}
 
@@ -38,7 +37,6 @@ public class RetroLNF implements LookAndFeel {
 
 	@Override
 	public int getBattleship() {
-		// TODO Auto-generated method stub
 		return R.drawable.battleship;
 	}
 
@@ -56,8 +54,7 @@ public class RetroLNF implements LookAndFeel {
 
 	@Override
 	public int getSmallAirplaneLeft() {
-		// TODO Auto-generated method stub
-		return R.drawable.little_airplane;
+		return R.drawable.airplane_small_left;
 	}
 
 	@Override
@@ -74,8 +71,7 @@ public class RetroLNF implements LookAndFeel {
 
 	@Override
 	public int getSmallAirplaneRight() {
-		// TODO Auto-generated method stub
-		return R.drawable.little_airplane_flip;
+		return R.drawable.airplane_small_right;
 	}
 
 	@Override
@@ -92,8 +88,7 @@ public class RetroLNF implements LookAndFeel {
 
 	@Override
 	public int getSmallSubmarineLeft() {
-		// TODO Auto-generated method stub
-		return R.drawable.little_submarine;
+		return R.drawable.submarine_small_left;
 	}
 
 	@Override

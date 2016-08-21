@@ -18,24 +18,24 @@ public class Submarine extends Enemy {
 	@Override
 	protected void initializeSmallEnemy() {
 		setPointValue(150);
-		setImageLeft(R.drawable.little_submarine_flip);
-		setImageRight(R.drawable.little_submarine);
+		setImageLeft(R.drawable.submarine_small_left);
+		setImageRight(R.drawable.submarine_small_right);
 		setImageExplosion(R.drawable.submarine_explosion);
 	}
 
 	@Override
 	protected void initializeMediumEnemy() {
 		setPointValue(40);
-		setImageLeft(R.drawable.medium_submarine_flip);
-		setImageRight(R.drawable.medium_submarine);
+		setImageLeft(R.drawable.submarine_medium_left);
+		setImageRight(R.drawable.submarine_medium_right);
 		setImageExplosion(R.drawable.submarine_explosion);
 	}
 
 	@Override
 	protected void initializeLargeEnemy() {
 		setPointValue(25);
-		setImageLeft(R.drawable.big_submarine_flip);
-		setImageRight(R.drawable.big_submarine);
+		setImageLeft(R.drawable.submarine_large_left);
+		setImageRight(R.drawable.submarine_large_right);
 		setImageExplosion(R.drawable.submarine_explosion);
 	}
 
