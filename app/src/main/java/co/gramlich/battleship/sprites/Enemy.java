@@ -37,11 +37,11 @@ public abstract class Enemy extends Sprite {
 	private void rollEnemySize() {
 		double sizeIndex = Math.random();
 		if (sizeIndex < 0.333) {
-			getSmall();
+			initializeSmallEnemy();
 		} else if (sizeIndex < 0.667) {
-			getMedium();
+			initializeMediumEnemy();
 		} else {
-			getLarge();
+			initializeLargeEnemy();
 		}
 	}
 
@@ -97,11 +97,11 @@ public abstract class Enemy extends Sprite {
 		}
 	}
 
-	protected abstract void getSmall();
+	protected abstract void initializeSmallEnemy();
 
-	protected abstract void getMedium();
+	protected abstract void initializeMediumEnemy();
 
-	protected abstract void getLarge();
+	protected abstract void initializeLargeEnemy();
 
 	public int getPointValue() {
 		return pointValue;

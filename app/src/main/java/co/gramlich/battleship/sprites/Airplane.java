@@ -16,7 +16,7 @@ public class Airplane extends Enemy {
 	}
 	
 	@Override
-	protected void getSmall() {
+	protected void initializeSmallEnemy() {
 		setPointValue(75);
 		setImageLeft(GameView.skin.getSmallAirplaneLeft());
 		setImageRight(GameView.skin.getSmallAirplaneRight());
@@ -24,7 +24,7 @@ public class Airplane extends Enemy {
 	}
 
 	@Override
-	protected void getMedium() {
+	protected void initializeMediumEnemy() {
 		setPointValue(20);
 		setImageLeft(R.drawable.medium_airplane);
 		setImageRight(R.drawable.medium_airplane_flip);
@@ -32,7 +32,7 @@ public class Airplane extends Enemy {
 	}
 
 	@Override
-	protected void getLarge() {
+	protected void initializeLargeEnemy() {
 		setPointValue(15);
 		setImageLeft(R.drawable.big_airplane);
 		setImageRight(R.drawable.big_airplane_flip);

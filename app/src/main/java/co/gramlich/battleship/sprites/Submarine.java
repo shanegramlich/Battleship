@@ -16,7 +16,7 @@ public class Submarine extends Enemy {
 	}
 
 	@Override
-	protected void getSmall() {
+	protected void initializeSmallEnemy() {
 		setPointValue(150);
 		setImageLeft(R.drawable.little_submarine_flip);
 		setImageRight(R.drawable.little_submarine);
@@ -24,7 +24,7 @@ public class Submarine extends Enemy {
 	}
 
 	@Override
-	protected void getMedium() {
+	protected void initializeMediumEnemy() {
 		setPointValue(40);
 		setImageLeft(R.drawable.medium_submarine_flip);
 		setImageRight(R.drawable.medium_submarine);
@@ -32,7 +32,7 @@ public class Submarine extends Enemy {
 	}
 
 	@Override
-	protected void getLarge() {
+	protected void initializeLargeEnemy() {
 		setPointValue(25);
 		setImageLeft(R.drawable.big_submarine_flip);
 		setImageRight(R.drawable.big_submarine);

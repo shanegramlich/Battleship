@@ -10,7 +10,7 @@
 	<string name="preference_option">Preferences</string>
 	<string name="about_option">About</string>
 	<string name="continue_playing">Tap to Continue</string>
-	<string name="about_message">This program was developed by the students of CS 203 (Fall 2012) at BYU Hawaii.</string>
+	<string name="about_message">I originally developed Battleship as part of my CS203 class project in college. I\'ve since decided to resurrect, refactor, and enhance my old code. The experience has taught me a little about the way I think, and just how much my programming ability has improved. +1 for continuous improvement! <br></br> Shane Gramlich</string>
 	<string name="are_you_sure">Are you sure you want to quit?</string>
 	<string name="yes">Yes</string>
 	<string name="no">No</string>

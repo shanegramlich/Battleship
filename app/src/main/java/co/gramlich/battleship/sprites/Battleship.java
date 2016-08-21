@@ -8,17 +8,13 @@ import android.graphics.PointF;
 import co.gramlich.battleship.shared.GameView;
 
 public class Battleship extends Sprite {
-	
 	private PointF leftGunPosition;
 	private PointF rightGunPosition;
 	private static Battleship instance;
-	
-	
-	private Battleship( Canvas c) {
-		setImage(GameView.skin.getBattleship(), c);
-		
-		
-		
+
+	private Battleship( Canvas canvas) {
+		setImage(GameView.skin.getBattleship(), canvas);
+
 		float magic = 23f/183f;
 		float y = Sprite.canvasHeight/2 - this.getHeight();
 		float x = (Sprite.canvasWidth - this.getWidth())/2 + this.getWidth()*magic;
@@ -41,14 +37,10 @@ public class Battleship extends Sprite {
 	public PointF getRightGunPosition() {
 		return rightGunPosition;
 	}
-	
-	
-	
-	
-	
-	public static Battleship getInstance(Canvas c) {
+
+	public static Battleship getInstance(Canvas canvas) {
 		if (instance == null) {
-			instance = new Battleship(c);
+			instance = new Battleship(canvas);
 		}
 		return instance;
 	}
