@@ -26,16 +26,16 @@ public class Airplane extends Enemy {
 	@Override
 	protected void initializeMediumEnemy() {
 		setPointValue(20);
-		setImageLeft(R.drawable.airplane_medium_left);
-		setImageRight(R.drawable.airplane_medium_right);
+		setImageLeft(GameView.skin.getMediumAirplaneLeft());
+		setImageRight(GameView.skin.getMediumAirplaneRight());
 		setImageExplosion(R.drawable.airplane_explosion);
 	}
 
 	@Override
 	protected void initializeLargeEnemy() {
 		setPointValue(15);
-		setImageLeft(R.drawable.airplane_large_left);
-		setImageRight(R.drawable.airplane_large_right);
+		setImageLeft(GameView.skin.getLargeAirplaneLeft());
+		setImageRight(GameView.skin.getLargeAirplaneRight());
 		setImageExplosion(R.drawable.airplane_explosion);
 	}
 

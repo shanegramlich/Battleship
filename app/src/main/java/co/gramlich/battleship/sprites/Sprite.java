@@ -10,7 +10,7 @@ import android.graphics.RectF;
 import java.util.Random;
 
 import co.gramlich.battleship.BattleshipActivity;
-import co.gramlich.battleship.skins.LookAndFeel;
+import co.gramlich.battleship.skins.Skins;
 import co.gramlich.battleship.shared.TickListener;
 
 public abstract class Sprite implements TickListener {
@@ -21,7 +21,7 @@ public abstract class Sprite implements TickListener {
 	private int width, height;
 	public static int canvasWidth;	//dirty hack
 	public static int canvasHeight;	//dirty hack
-	static LookAndFeel skin;
+	static Skins skin;
 	protected Random random = new Random();
 
 	public Sprite() {
@@ -31,7 +31,7 @@ public abstract class Sprite implements TickListener {
 		velocity = new PointF();
 	}
 	
-	public Sprite(LookAndFeel skin) {
+	public Sprite(Skins skin) {
 		//super(GameView.skin);
 		paint = new Paint();
 		paint.setStyle(Style.STROKE);

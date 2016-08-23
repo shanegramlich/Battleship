@@ -5,6 +5,7 @@ package co.gramlich.battleship.sprites;
 import android.graphics.Canvas;
 
 import co.gramlich.battleship.R;
+import co.gramlich.battleship.shared.GameView;
 
 public class Submarine extends Enemy {
 
@@ -18,24 +19,24 @@ public class Submarine extends Enemy {
 	@Override
 	protected void initializeSmallEnemy() {
 		setPointValue(150);
-		setImageLeft(R.drawable.submarine_small_left);
-		setImageRight(R.drawable.submarine_small_right);
+		setImageLeft(GameView.skin.getSmallSubmarineLeft());
+		setImageRight(GameView.skin.getSmallSubmarineRight());
 		setImageExplosion(R.drawable.submarine_explosion);
 	}
 
 	@Override
 	protected void initializeMediumEnemy() {
 		setPointValue(40);
-		setImageLeft(R.drawable.submarine_medium_left);
-		setImageRight(R.drawable.submarine_medium_right);
+		setImageLeft(GameView.skin.getMediumSubmarineLeft());
+		setImageRight(GameView.skin.getMediumSubmarineRight());
 		setImageExplosion(R.drawable.submarine_explosion);
 	}
 
 	@Override
 	protected void initializeLargeEnemy() {
 		setPointValue(25);
-		setImageLeft(R.drawable.submarine_large_left);
-		setImageRight(R.drawable.submarine_large_right);
+		setImageLeft(GameView.skin.getLargeSubmarineLeft());
+		setImageRight(GameView.skin.getLargeSubmarineRight());
 		setImageExplosion(R.drawable.submarine_explosion);
 	}
 

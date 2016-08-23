@@ -6,15 +6,15 @@ import android.graphics.PointF;
 
 import co.gramlich.battleship.R;
 
-public class RetroLNF implements LookAndFeel {
+public class SteroidSkin implements Skins {
 
-	public RetroLNF() {
+	public SteroidSkin() {
 		// TODO Auto-generated constructor stub
 	}
 
 	@Override
 	public int getTextColor() {
-		return Color.BLACK;
+		return Color.BLUE;
 	}
 
 	@Override
@@ -37,82 +37,72 @@ public class RetroLNF implements LookAndFeel {
 
 	@Override
 	public int getBattleship() {
-		return R.drawable.battleship;
+		return R.drawable.battleship_green;
 	}
 
 	@Override
-	public int getBigAirplaneLeft() {
-		// TODO Auto-generated method stub
-		return 0;
+	public int getLargeAirplaneLeft() {
+		return R.drawable.airplane_large_left_green;
 	}
 
 	@Override
 	public int getMediumAirplaneLeft() {
-		// TODO Auto-generated method stub
-		return 0;
+		return R.drawable.airplane_medium_left_green;
 	}
 
 	@Override
 	public int getSmallAirplaneLeft() {
-		return R.drawable.airplane_small_left;
+		return R.drawable.airplane_small_left_green;
 	}
 
 	@Override
-	public int getBigAirplaneRight() {
-		// TODO Auto-generated method stub
-		return 0;
+	public int getLargeAirplaneRight() {
+		return R.drawable.airplane_large_right_green;
 	}
 
 	@Override
 	public int getMediumAirplaneRight() {
-		// TODO Auto-generated method stub
-		return 0;
+		return R.drawable.airplane_medium_right_green;
 	}
 
 	@Override
 	public int getSmallAirplaneRight() {
-		return R.drawable.airplane_small_right;
+		return R.drawable.airplane_small_right_purple;
 	}
 
 	@Override
-	public int getBigSubmarineLeft() {
-		// TODO Auto-generated method stub
-		return 0;
+	public int getLargeSubmarineLeft() {
+		return R.drawable.submarine_large_left_purple;
 	}
 
 	@Override
 	public int getMediumSubmarineLeft() {
-		// TODO Auto-generated method stub
-		return 0;
+		return R.drawable.submarine_medium_left_green;
 	}
 
 	@Override
 	public int getSmallSubmarineLeft() {
-		return R.drawable.submarine_small_left;
+		return R.drawable.submarine_small_left_green;
 	}
 
 	@Override
-	public int getBigSubmarineRight() {
-		// TODO Auto-generated method stub
-		return 0;
+	public int getLargeSubmarineRight() {
+		return R.drawable.submarine_large_right_brown;
 	}
 
 	@Override
 	public int getMediumSubmarineRight() {
-		// TODO Auto-generated method stub
-		return 0;
+		return R.drawable.submarine_medium_right_green;
 	}
 
 	@Override
 	public int getSmallSubmarineRight() {
-		// TODO Auto-generated method stub
-		return 0;
+		return R.drawable.submarine_small_right_green;
 	}
 
 	@Override
 	public int getGunsmoke() {
-		// TODO Auto-generated method stub
-		return R.drawable.star;
+		return R.drawable.gunsmoke;
 	}
 
 	@Override
@@ -134,21 +124,18 @@ public class RetroLNF implements LookAndFeel {
 	}
 
 	@Override
+	public int getWater() {
+		return R.drawable.water_blue;
+	}
+
+	@Override
 	public PointF getLeftGunPosition() {
-		// TODO Auto-generated method stub
-		PointF pos = new PointF();
-		pos.x = 0.125683f;
-		pos.y = 1f;
-		return pos;
+		return new PointF(754,438);
 	}
 
 	@Override
 	public PointF getRightGunPosition() {
-		// TODO Auto-generated method stub
-		PointF pos = new PointF();
-		pos.x = 0.918033f;
-		pos.y = 1f;
-		return pos;
+		return new PointF(1189,438);
 	}
 
 }

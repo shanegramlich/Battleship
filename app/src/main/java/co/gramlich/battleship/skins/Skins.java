@@ -3,7 +3,7 @@ package co.gramlich.battleship.skins;
 import android.graphics.Canvas;
 import android.graphics.PointF;
 
-public interface LookAndFeel {
+public interface Skins {
 	
 	//returns the color in which the SCORE and TIME
 	//text should be rendered.
@@ -30,22 +30,23 @@ public interface LookAndFeel {
 	//These methods simply return the integer code
 	//(from R.java) for their respective bitmaps.
 	int getBattleship();
-	int getBigAirplaneLeft();
+	int getLargeAirplaneLeft();
 	int getMediumAirplaneLeft();
 	int getSmallAirplaneLeft();
-	int getBigAirplaneRight();
+	int getLargeAirplaneRight();
 	int getMediumAirplaneRight();
 	int getSmallAirplaneRight();
-	int getBigSubmarineLeft();
+	int getLargeSubmarineLeft();
 	int getMediumSubmarineLeft();
 	int getSmallSubmarineLeft();
-	int getBigSubmarineRight();
+	int getLargeSubmarineRight();
 	int getMediumSubmarineRight();
 	int getSmallSubmarineRight();
 	int getGunsmoke();
 	int getAirplaneExplosion();
 	int getSubmarineExplosion();
 	int getDepthCharge();
+	int getWater();
 
 	//These two methods return the position, in relative
 	//coordinates between 0..1, of where the mouths of

@@ -22,9 +22,9 @@ import co.gramlich.battleship.BattleshipActivity;
 import co.gramlich.battleship.R;
 import co.gramlich.battleship.SettingsActivity;
 import co.gramlich.battleship.ScoreBoardActivity;
-import co.gramlich.battleship.skins.LookAndFeel;
-import co.gramlich.battleship.skins.RetroLNF;
-import co.gramlich.battleship.skins.SteroidsLNF;
+import co.gramlich.battleship.skins.Skins;
+import co.gramlich.battleship.skins.RetroSkin;
+import co.gramlich.battleship.skins.SteroidSkin;
 import co.gramlich.battleship.sprites.Direction;
 import co.gramlich.battleship.sprites.FakeQueue;
 import co.gramlich.battleship.sprites.Sprite;
@@ -38,7 +38,7 @@ import co.gramlich.battleship.sprites.Submarine;
 
 
 public class GameView extends View {
-    public static LookAndFeel skin;
+    public static Skins skin;
     private static int seaLevel;
     boolean initialized = false;
     float timerTextWidth;
@@ -56,12 +56,12 @@ public class GameView extends View {
     private Canvas canvas;
     private FakeQueue<Bullet> bullets = new FakeQueue<>();
     private FakeQueue<DepthCharge> depthCharges = new FakeQueue<>();
-    private Gunsmoke leftGunsmoke, rightGunsmoke;
-    private boolean showLeftGunsmoke, showRightGunsmoke;
+    private Gunsmoke leftGunsmoke;
+    private Gunsmoke rightGunsmoke;
+    private boolean showLeftGunsmoke;
+    private boolean showRightGunsmoke;
     private SoundFX soundFX;
     private BattleshipActivity battleshipActivity;
-    private RetroLNF retro;
-    private SteroidsLNF steroids;
     private SettingsActivity settingsActivity;
 
     public GameView(Context context) {
@@ -73,10 +73,10 @@ public class GameView extends View {
         settingsActivity = new SettingsActivity();
         switch (settingsActivity.getSkin(context)) {
             case 1:
-                skin = new RetroLNF();
+                skin = new RetroSkin();
                 break;
             case 2:
-                skin = new SteroidsLNF();
+                skin = new SteroidSkin();
                 break;
         }
     }
@@ -138,13 +138,13 @@ public class GameView extends View {
             paint.setTextSize(40);
         }
         timerTextWidth = paint.measureText(getResources().getString(R.string.time) + ": 0:00");
-        battleship = Battleship.getInstance(canvas);
+        battleship = Battleship.getBattleship(canvas);
         battleship.setBottom(canvas.getHeight() / 2);
         battleship.setCenterX(canvas.getWidth() / 2);
 
         leftGunsmoke = new Gunsmoke(canvas);
+        leftGunsmoke.setBottom(battleship.getRightGunPosition().y);
         leftGunsmoke.setRight(battleship.getLeftGunPosition().x);
-        leftGunsmoke.setBottom(1);
 
         rightGunsmoke = new Gunsmoke(canvas);
         rightGunsmoke.setBottom(battleship.getRightGunPosition().y);
@@ -171,7 +171,7 @@ public class GameView extends View {
     }
 
     private void drawWater(Canvas canvas) {
-        water = BattleshipActivity.loadBitmap(R.drawable.water);
+        water = BattleshipActivity.loadBitmap(skin.getWater());
         seaLevel = setSeaLevel(canvas);
         float ww = water.getScaledWidth(canvas);
         for (int x = 0; x < canvas.getWidth(); x += ww) {
@@ -202,7 +202,8 @@ public class GameView extends View {
         timeLeft = SettingsActivity.getGameLength(getContext());
         paused = false;
         backgrounded = false;
-        showLeftGunsmoke = showRightGunsmoke = false;
+        showLeftGunsmoke = false;
+        showRightGunsmoke = false;
         timer.unsubscribe(bullets);
         bullets.clear();
         timer.unsubscribe(depthCharges);
